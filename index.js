@@ -3,21 +3,20 @@ function getFirstSelector(selector) {
 }
 
 function nestedTarget() {
-  var objTarget = document.getElementsByClassName('target')
-  return objTarget[0]
+  return document.querySelector('.target')
 }
 
 function increaseRankBy(n) {
-  const lis = document.getElementById('app').querySelectorAll('ul.ranked-list li')
-  for (let i = 0; i < lis.length; i++) {
-  lis[i].innerHTML = parseInt(lis[i].innerHTML) + n
-}
+  const lis = document.querySelector('#app').querySelectorAll('ul.ranked-list li')
+  for (const li of lis) {
+    li.innerHTML = parseInt(li.innerHTML) + n
+  }
 }
 
 function deepestChild(){
-  var List = document.getElementById('grand-node')
-  while (typeof List.children[0] !== 'undefined') {
-    List = List.querySelector('div')
+  let nested = document.querySelector('#grand-node')
+  while (typeof nested.children[0] !== 'undefined') {
+    nested = nested.querySelector('div')
   }
-  return List
+  return nested
 }
